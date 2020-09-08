@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig",
+  "compilerOptions": {
+    "noEmit": true,
+    "esModuleInterop": true,
+    "strict": false,
+    "types": ["../src/@types", "declarations.d"]
+  },
+  "references": [{ "path": ".." }]
+}

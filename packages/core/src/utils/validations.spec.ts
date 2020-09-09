@@ -1,10 +1,6 @@
 import { expect } from 'chai'
-import {
-  isValidName,
-  isDefaultContext,
-  isValidContext,
-} from '../../src/utils/validations'
-import { NetlifyContextSettings } from '../../src/netlify'
+import { isValidName, isDefaultContext, isValidContext } from './validations'
+import { NetlifyContextSettings } from './netlify'
 
 describe('isValidName', () => {
   it('should return true when the given name is valid', function () {

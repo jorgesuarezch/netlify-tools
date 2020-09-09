@@ -1,6 +1,6 @@
 import { Command, flags } from '@oclif/command'
 import { args, Input } from '@oclif/parser'
-import { Netlify } from './netlify'
+import { Netlify } from '@netlify-tools/core/lib/utils/netlify'
 
 abstract class BaseCommand extends Command {
   static flags = {

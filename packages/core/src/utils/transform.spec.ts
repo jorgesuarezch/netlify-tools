@@ -1,37 +1,30 @@
-import { expect } from 'chai'
 import {
   getFormattedContext,
   getFormattedName,
   getContextualizedVariables,
   getVariablesByContext,
   groupVariablesByContext,
-} from '../../src/utils/transform'
-import { KnownContext } from '../../src/utils/constants'
+} from './transform'
+import { KnownContext } from './constants'
 
 describe('getFormattedContext', () => {
   it('Should format the context name properly', async function () {
-    expect(getFormattedContext('develop')).to.be.equal('__DEVELOP__')
-    expect(getFormattedContext('feature/task-x')).to.be.equal(
-      '__FEATURE-TASK-X__'
-    )
+    expect(getFormattedContext('develop')).toBe('__DEVELOP__')
+    expect(getFormattedContext('feature/task-x')).toBe('__FEATURE-TASK-X__')
   })
 })
 
 describe('getFormattedName', () => {
   it('Should format the variable name properly', async function () {
-    expect(getFormattedName('ENV_VAR', 'develop')).to.be.equal(
-      'ENV_VAR__DEVELOP__'
-    )
-    expect(getFormattedName('FOO', 'develop')).to.be.equal('FOO__DEVELOP__')
-    expect(getFormattedName('bar', 'develop')).to.be.equal('bar__DEVELOP__')
-    expect(getFormattedName('BaZ', 'develop')).to.be.equal('BaZ__DEVELOP__')
+    expect(getFormattedName('ENV_VAR', 'develop')).toBe('ENV_VAR__DEVELOP__')
+    expect(getFormattedName('FOO', 'develop')).toBe('FOO__DEVELOP__')
+    expect(getFormattedName('bar', 'develop')).toBe('bar__DEVELOP__')
+    expect(getFormattedName('BaZ', 'develop')).toBe('BaZ__DEVELOP__')
   })
 
   it('Should ignore default context', async function () {
-    expect(getFormattedName('ENV_VAR', KnownContext.Default)).to.be.equal(
-      'ENV_VAR'
-    )
-    expect(getFormattedName('BAz', KnownContext.Default)).to.be.equal('BAz')
+    expect(getFormattedName('ENV_VAR', KnownContext.Default)).toBe('ENV_VAR')
+    expect(getFormattedName('BAz', KnownContext.Default)).toBe('BAz')
   })
 })
 
@@ -39,7 +32,7 @@ describe('getContextualizedVariables', () => {
   it('Should return a new var objects with the keys formatted properly', async function () {
     expect(
       getContextualizedVariables({ ENV_VAR_1: '1', ENV_VAR_2: '1' }, 'develop')
-    ).to.deep.equal({ ENV_VAR_1__DEVELOP__: '1', ENV_VAR_2__DEVELOP__: '1' })
+    ).toEqual({ ENV_VAR_1__DEVELOP__: '1', ENV_VAR_2__DEVELOP__: '1' })
   })
 })
 
@@ -54,7 +47,7 @@ describe('getVariablesByContext', () => {
       ENV_VAR_3__STAGING__: '6',
     }
 
-    expect(getVariablesByContext(env, 'develop')).to.deep.equal({
+    expect(getVariablesByContext(env, 'develop')).toEqual({
       ENV_VAR_1: '1',
       ENV_VAR_2: '2',
       ENV_VAR_3: '3',
@@ -74,7 +67,7 @@ describe('groupVariablesByContext', () => {
       ENV_VAR_3__STAGING__: '6',
     }
 
-    expect(groupVariablesByContext(env)).to.deep.equal({
+    expect(groupVariablesByContext(env)).toEqual({
       default: {
         ENV_VAR_GLOBAL: 'ENV_VAR_GLOBAL',
       },

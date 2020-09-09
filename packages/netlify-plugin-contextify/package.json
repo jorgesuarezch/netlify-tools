@@ -1,0 +1,21 @@
+{
+  "name": "@netlify-tools/netlify-plugin-env",
+  "version": "0.0.0",
+  "description": "A Netlify build plugin to set ENV variables based on the context",
+  "main": "dist/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jorgesuarezch/neltify-tools.git",
+    "directory": "packages/netlify-plugin-contextify"
+  },
+  "author": "Jorge Suárez",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "@netlify-tools/core": "1.0.0"
+  },
+  "devDependencies": {}
+}

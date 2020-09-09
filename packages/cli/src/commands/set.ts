@@ -2,9 +2,9 @@ import { flags } from '@oclif/command'
 import * as chalk from 'chalk'
 import { isEqual } from 'lodash'
 
+import { getFormattedName } from '@netlify-tools/core/lib/utils/transform'
+import { KnownContext } from '@netlify-tools/core/lib/utils/constants'
 import { BaseCommand } from '../command'
-import { getFormattedName } from '../utils/transform'
-import { KnownContext } from '../utils/constants'
 
 export default class SetCommand extends BaseCommand {
   static strict = false

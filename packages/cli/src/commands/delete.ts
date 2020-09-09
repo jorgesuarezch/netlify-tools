@@ -3,7 +3,7 @@ import * as chalk from 'chalk'
 import { isEqual } from 'lodash'
 
 import { BaseCommand } from '../command'
-import { getFormattedName } from '../utils/transform'
+import { getFormattedName } from '@netlify-tools/core/lib/utils/transform'
 
 export default class DeleteCommand extends BaseCommand {
   static strict = false

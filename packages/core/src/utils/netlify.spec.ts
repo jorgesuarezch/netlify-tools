@@ -1,8 +1,6 @@
-import { expect } from 'chai'
 import * as nock from 'nock'
-import { Netlify } from '../src/netlify'
+import { Netlify } from './netlify'
 
-/* eslint-disable no-console */
 describe('Netlify', () => {
   it('Should retrieve context settings', async function () {
     nock('https://api.netlify.com', {
@@ -23,10 +21,10 @@ describe('Netlify', () => {
     })
     const response = await client.getContextSettings()
     console.log('response', response)
-    expect(response).ownProperty('variables')
-    expect(response).ownProperty('branches')
-    expect(response.variables).to.deep.equal({ API_TOKEN: 'qwerty' })
-    expect(response.branches).to.deep.equal(['master'])
+    expect(response).toHaveProperty('variables')
+    expect(response).toHaveProperty('branches')
+    expect(response.variables).toEqual({ API_TOKEN: 'qwerty' })
+    expect(response.branches).toEqual(['master'])
   })
 
   it('Should update context settings', async function () {
@@ -62,12 +60,10 @@ describe('Netlify', () => {
       branches: ['master', 'develop'],
     })
 
-    expect(response).ownProperty('variables')
-    expect(response).ownProperty('branches')
-    expect(response.variables).to.deep.equal(
-      expectedResponse.build_settings.env
-    )
-    expect(response.branches).to.deep.equal(
+    expect(response).toHaveProperty('variables')
+    expect(response).toHaveProperty('branches')
+    expect(response.variables).toEqual(expectedResponse.build_settings.env)
+    expect(response.branches).toEqual(
       expectedResponse.build_settings.allowed_branches
     )
   })

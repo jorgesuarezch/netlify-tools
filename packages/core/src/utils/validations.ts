@@ -1,5 +1,5 @@
 import { KnownContext, RESERVED_CONTEXT_NAMES } from './constants'
-import { NetlifyContextSettings } from '../netlify'
+import { NetlifyContextSettings } from './netlify'
 
 /**
  * Check if the given name is valid and it does not generate any conflict with context format

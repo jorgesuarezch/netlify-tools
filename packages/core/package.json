@@ -1,0 +1,32 @@
+{
+  "name": "@netlify-tools/core",
+  "version": "1.0.0",
+  "description": "A Netlify build plugin to set ENV variables based on the context",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
+  "files": [
+    "/lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jorgesuarezch/neltify-tools.git",
+    "directory": "packages/netlify-plugin-contextify"
+  },
+  "author": "Jorge Suárez",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --fix --color --cache --format codeframe",
+    "build": "tsc",
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-gitignore": "^0.1.0",
+    "eslint-plugin-jsdoc": "^30.4.0",
+    "eslint-plugin-monorepo": "^0.2.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "netlify": "^4.3.13"
+  }
+}

@@ -2,14 +2,15 @@ import { flags } from '@oclif/command'
 import * as chalk from 'chalk'
 import { orderBy, has } from 'lodash'
 
-import { BaseCommand } from '../command'
-import { KnownContext } from '../utils/constants'
+import { KnownContext } from '@netlify-tools/core/lib/utils/constants'
 import {
   getFormattedContext,
   groupVariablesByContext,
   getFormattedName,
-} from '../utils/transform'
-import { NetlifyContextSettings } from '../netlify'
+} from '@netlify-tools/core/lib//utils/transform'
+import { NetlifyContextSettings } from '@netlify-tools/core/lib/utils/netlify'
+
+import { BaseCommand } from '../command'
 
 export default class DescribeCommand extends BaseCommand {
   static strict = false

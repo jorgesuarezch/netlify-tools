@@ -1,6 +1,6 @@
 import { KnownContext } from './constants'
 
-export const getFormattedContext = (context: string) => {
+export const getFormattedContext = (context: string): string => {
   const cleanContextName = context.replace(/[^a-zA-Z0-9_-]/, '-')
 
   return `__${cleanContextName.toUpperCase()}__`
@@ -58,7 +58,9 @@ export const getVariablesByContext = (
  *
  * @returns {object} grouped env variables
  */
-export const groupVariablesByContext = (env: Record<string, string>) => {
+export const groupVariablesByContext = (
+  env: Record<string, string>
+): Record<string, Record<string, string>> => {
   const entries = Object.entries(env)
 
   const result = entries.reduce<Record<string, Record<string, string>>>(

@@ -20,7 +20,7 @@ $ npm install -g @netlify-tools/cli
 $ netlify-tools COMMAND
 running command...
 $ netlify-tools (-v|--version|version)
-@netlify-tools/cli/1.0.0 darwin-x64 node-v12.18.0
+@netlify-tools/cli/0.0.0 darwin-x64 node-v12.18.0
 $ netlify-tools --help [COMMAND]
 USAGE
   $ netlify-tools COMMAND
@@ -52,7 +52,7 @@ EXAMPLE
   $ nfy env:delete -c production FOO BAR BAZ
 ```
 
-_See code: [src/commands/delete.ts](https://github.com/jorgesuarezch/neltify-env-cli/blob/v1.0.0/src/commands/delete.ts)_
+_See code: [src/commands/delete.ts](https://github.com/jorgesuarezch/neltify-tools/blob/v0.0.0/src/commands/delete.ts)_
 
 ## `netlify-tools describe`
 
@@ -80,7 +80,7 @@ EXAMPLE
      BAR=bar-develop
 ```
 
-_See code: [src/commands/describe.ts](https://github.com/jorgesuarezch/neltify-env-cli/blob/v1.0.0/src/commands/describe.ts)_
+_See code: [src/commands/describe.ts](https://github.com/jorgesuarezch/neltify-tools/blob/v0.0.0/src/commands/describe.ts)_
 
 ## `netlify-tools help [COMMAND]`
 
@@ -117,5 +117,5 @@ EXAMPLE
   $ nfy env:set -c staging FOO=foo BAR=bar
 ```
 
-_See code: [src/commands/set.ts](https://github.com/jorgesuarezch/neltify-env-cli/blob/v1.0.0/src/commands/set.ts)_
+_See code: [src/commands/set.ts](https://github.com/jorgesuarezch/neltify-tools/blob/v0.0.0/src/commands/set.ts)_
 <!-- commandsstop -->

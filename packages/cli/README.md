@@ -16,31 +16,31 @@ Define your env variable with confidence
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g neltify-env-cli
-$ netlifyenv COMMAND
+$ npm install -g @netlify-tools/cli
+$ netlify-tools COMMAND
 running command...
-$ netlifyenv (-v|--version|version)
-neltify-env-cli/0.0.0 darwin-x64 node-v12.18.0
-$ netlifyenv --help [COMMAND]
+$ netlify-tools (-v|--version|version)
+@netlify-tools/cli/1.0.0 darwin-x64 node-v12.18.0
+$ netlify-tools --help [COMMAND]
 USAGE
-  $ netlifyenv COMMAND
+  $ netlify-tools COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`netlifyenv delete`](#netlifyenv-delete)
-* [`netlifyenv describe`](#netlifyenv-describe)
-* [`netlifyenv help [COMMAND]`](#netlifyenv-help-command)
-* [`netlifyenv set`](#netlifyenv-set)
+* [`netlify-tools delete`](#netlify-tools-delete)
+* [`netlify-tools describe`](#netlify-tools-describe)
+* [`netlify-tools help [COMMAND]`](#netlify-tools-help-command)
+* [`netlify-tools set`](#netlify-tools-set)
 
-## `netlifyenv delete`
+## `netlify-tools delete`
 
 Delete env variables from a specific context
 
 ```
 USAGE
-  $ netlifyenv delete
+  $ netlify-tools delete
 
 OPTIONS
   -c, --context=context  context to be modified
@@ -52,15 +52,15 @@ EXAMPLE
   $ nfy env:delete -c production FOO BAR BAZ
 ```
 
-_See code: [src/commands/delete.ts](https://github.com/jorgesuarezch/neltify-env-cli/blob/v0.0.0/src/commands/delete.ts)_
+_See code: [src/commands/delete.ts](https://github.com/jorgesuarezch/neltify-env-cli/blob/v1.0.0/src/commands/delete.ts)_
 
-## `netlifyenv describe`
+## `netlify-tools describe`
 
 Describe env variables for a context
 
 ```
 USAGE
-  $ netlifyenv describe
+  $ netlify-tools describe
 
 OPTIONS
   -c, --context=context  Context to describe
@@ -80,15 +80,15 @@ EXAMPLE
      BAR=bar-develop
 ```
 
-_See code: [src/commands/describe.ts](https://github.com/jorgesuarezch/neltify-env-cli/blob/v0.0.0/src/commands/describe.ts)_
+_See code: [src/commands/describe.ts](https://github.com/jorgesuarezch/neltify-env-cli/blob/v1.0.0/src/commands/describe.ts)_
 
-## `netlifyenv help [COMMAND]`
+## `netlify-tools help [COMMAND]`
 
-display help for netlifyenv
+display help for netlify-tools
 
 ```
 USAGE
-  $ netlifyenv help [COMMAND]
+  $ netlify-tools help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for
@@ -99,16 +99,16 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
 
-## `netlifyenv set`
+## `netlify-tools set`
 
 Set env variables by context
 
 ```
 USAGE
-  $ netlifyenv set
+  $ netlify-tools set
 
 OPTIONS
-  -c, --context=context  Context
+  -c, --context=context  [default: default] Context
   -h, --help             show CLI help
   --authToken=authToken  (required) Netlify OAuth Token
   --siteID=siteID        (required) Netlify Site ID
@@ -117,5 +117,5 @@ EXAMPLE
   $ nfy env:set -c staging FOO=foo BAR=bar
 ```
 
-_See code: [src/commands/set.ts](https://github.com/jorgesuarezch/neltify-env-cli/blob/v0.0.0/src/commands/set.ts)_
+_See code: [src/commands/set.ts](https://github.com/jorgesuarezch/neltify-env-cli/blob/v1.0.0/src/commands/set.ts)_
 <!-- commandsstop -->

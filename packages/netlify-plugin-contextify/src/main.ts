@@ -25,5 +25,5 @@ export const onPreBuild = (): void => {
     branch
   )
 
-  process.env = { ...process.env, ...variables } as any
+  process.env = { ...process.env, ...variables }
 }

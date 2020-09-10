@@ -36,7 +36,7 @@ export default class SetCommand extends BaseCommand {
 
     const settings = await this.netlify?.getContextSettings()
 
-    const variables = argv.reduce<Record<string, any>>((acc, definition) => {
+    const variables = argv.reduce<Record<string, string>>((acc, definition) => {
       const [key, value] = definition.split('=')
       const formattedName = getFormattedName(key, flags.context)
 

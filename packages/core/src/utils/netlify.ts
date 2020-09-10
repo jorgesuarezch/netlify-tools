@@ -16,7 +16,7 @@ export type NetlifyContextSettingsPayload = {
 }
 
 export class Netlify {
-  client: any
+  client: any // eslint-disable-line @typescript-eslint/no-explicit-any
 
   constructor(private configuration: NetlifyConfiguration) {
     this.client = new NetlifyAPI(configuration.accessToken)

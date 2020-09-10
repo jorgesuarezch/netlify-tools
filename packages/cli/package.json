@@ -15,19 +15,19 @@
     "@oclif/plugin-help": "^3",
     "chalk": "^4.1.0",
     "lodash": "^4.17.20",
-    "netlify": "^4.3.12",
-    "tslib": "^1"
+    "netlify": "^4.3.13",
+    "tslib": "^2"
   },
   "devDependencies": {
     "@manifoldco/swagger-to-ts": "^2.1.0",
     "@oclif/dev-cli": "^1",
     "@types/lodash": "^4.14.161",
-    "eslint": "^5.13",
-    "globby": "^10",
+    "eslint": "^7.8",
+    "globby": "^11",
     "nock": "^13.0.4",
     "prettier": "^2.1.1",
-    "ts-node": "^8",
-    "typescript": "^3.3"
+    "ts-node": "^9",
+    "typescript": "^4.0"
   },
   "engines": {
     "node": ">=8.0.0"

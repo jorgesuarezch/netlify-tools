@@ -25,8 +25,8 @@ abstract class BaseCommand extends Command {
       this.constructor as Input<typeof BaseCommand.flags>
     )
     this.netlify = new Netlify({
-      siteId: flags.siteID as any,
-      accessToken: flags.authToken as any,
+      siteId: flags.siteID as string,
+      accessToken: flags.authToken as string,
     })
   }
 }

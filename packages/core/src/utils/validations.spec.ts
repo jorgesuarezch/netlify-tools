@@ -1,28 +1,27 @@
-import { expect } from 'chai'
 import { isValidName, isDefaultContext, isValidContext } from './validations'
 import { NetlifyContextSettings } from './netlify'
 
 describe('isValidName', () => {
   it('should return true when the given name is valid', function () {
-    expect(isValidName('ENV_VAR')).to.be.true
-    expect(isValidName('foo')).to.be.true
-    expect(isValidName('foo-bar')).to.be.true
-    expect(isValidName('foo-bar__')).to.be.true
-    expect(isValidName('__foo-bar')).to.be.true
+    expect(isValidName('ENV_VAR')).toBeTruthy()
+    expect(isValidName('foo')).toBeTruthy()
+    expect(isValidName('foo-bar')).toBeTruthy()
+    expect(isValidName('foo-bar__')).toBeTruthy()
+    expect(isValidName('__foo-bar')).toBeTruthy()
   })
   it('should return false when the given name is not valid', function () {
-    expect(isValidName('__ENV_VAR__')).to.be.false
-    expect(isValidName('ENV__VAR__')).to.be.false
-    expect(isValidName('ENV__VAR__')).to.be.false
+    expect(isValidName('__ENV_VAR__')).toBeFalsy()
+    expect(isValidName('ENV__VAR__')).toBeFalsy()
+    expect(isValidName('ENV__VAR__')).toBeFalsy()
   })
 })
 
 describe('isDefaultContext', () => {
   it('should return true it is the default context', function () {
-    expect(isDefaultContext('default')).to.be.true
+    expect(isDefaultContext('default')).toBeTruthy()
   })
   it('should return false it is not the default context', function () {
-    expect(isDefaultContext('develop')).to.be.false
+    expect(isDefaultContext('develop')).toBeFalsy()
   })
 })
 
@@ -32,17 +31,17 @@ describe('isValidContext', () => {
     branches: ['develop', 'staging'],
   }
   it('should return true if the given context is valid', function () {
-    expect(isValidContext('default', settings)).to.be.true
-    expect(isValidContext('deploy-preview', settings)).to.be.true
-    expect(isValidContext('branch-deploy', settings)).to.be.true
-    expect(isValidContext('production', settings)).to.be.true
+    expect(isValidContext('default', settings)).toBeTruthy()
+    expect(isValidContext('deploy-preview', settings)).toBeTruthy()
+    expect(isValidContext('branch-deploy', settings)).toBeTruthy()
+    expect(isValidContext('production', settings)).toBeTruthy()
     // custom deploy context
-    expect(isValidContext('develop', settings)).to.be.true
-    expect(isValidContext('staging', settings)).to.be.true
+    expect(isValidContext('develop', settings)).toBeTruthy()
+    expect(isValidContext('staging', settings)).toBeTruthy()
   })
 
   it('should return false it is not a valid context', function () {
-    expect(isValidContext('release', settings)).to.be.false
-    expect(isValidContext('custom-branch', settings)).to.be.false
+    expect(isValidContext('release', settings)).toBeFalsy()
+    expect(isValidContext('custom-branch', settings)).toBeFalsy()
   })
 })

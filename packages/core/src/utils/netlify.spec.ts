@@ -1,70 +1,116 @@
-import * as nock from 'nock'
 import { Netlify } from './netlify'
+jest.mock('netlify', () => {
+  return class NetlifyMock {
+    updateSite = jest.fn()
+    getSite = jest.fn()
+  }
+})
 
 describe('Netlify', () => {
-  it('Should retrieve context settings', async function () {
-    nock('https://api.netlify.com', {
-      encodedQueryParams: true,
-    })
-      .get(/\/api\/v1\/sites\/.*/)
-      .reply(200, {
-        id: 'uuid',
-        site_id: 'uuid',
-        build_settings: {
-          env: { API_TOKEN: 'qwerty' },
-          allowed_branches: ['master'],
-        },
-      })
-    const client = new Netlify({
-      accessToken: 'id',
-      siteId: 'uuid',
-    })
-    const response = await client.getContextSettings()
-    console.log('response', response)
-    expect(response).toHaveProperty('variables')
-    expect(response).toHaveProperty('branches')
-    expect(response.variables).toEqual({ API_TOKEN: 'qwerty' })
-    expect(response.branches).toEqual(['master'])
-  })
+  const defaultResponse = {
+    id: 'uuid',
+    site_id: 'uuid',
+    build_settings: {
+      env: { API_TOKEN: 'secret' },
+      allowed_branches: ['master'],
+    },
+  }
+  let api: any = null
 
-  it('Should update context settings', async function () {
-    const expectedResponse = {
-      id: 'uuid',
-      site_id: 'uuid',
-      build_settings: {
-        env: {
-          ENV_VAR_1: 'env-var-1',
-          ENV_VAR_2: 'env-var-2',
-          ENV_VAR_3: 'env-var-3',
-        },
-        allowed_branches: ['master', 'develop'],
-      },
-    }
-    // nock.recorder.rec()
-    nock('https://api.netlify.com', {
-      encodedQueryParams: true,
-    })
-      .patch(/\/api\/v1\/sites\/.*/)
-      .reply(200, expectedResponse)
-
-    const client = new Netlify({
+  beforeEach(() => {
+    jest.resetModules()
+    api = new Netlify({
       accessToken: 'oauth-token',
       siteId: 'uuid',
     })
-    const response = await client.updateContextSettings({
+    api.client.getSite.mockReturnValueOnce(defaultResponse)
+    api.client.updateSite.mockReturnValueOnce(defaultResponse)
+  })
+
+  it('Should return context settings', async function () {
+    api.client.getSite.mockReturnValueOnce(defaultResponse)
+
+    const response = await api.getContextSettings()
+
+    expect(api.client.getSite).toHaveBeenCalledTimes(1)
+    expect(api.client.getSite).toHaveBeenCalledWith({
+      site_id: 'uuid',
+    })
+    expect(response).toHaveProperty('variables')
+    expect(response.variables).toBeInstanceOf(Object)
+
+    expect(response).toHaveProperty('branches')
+    expect(response.branches).toBeInstanceOf(Array)
+  })
+
+  it('Should update context settings', async function () {
+    const response = await api.updateContextSettings({
       variables: {
-        ENV_VAR_1: 'env-var-1',
-        ENV_VAR_2: 'env-var-2',
-        ENV_VAR_3: 'env-var-3',
+        FOO: 'foo',
+        BAR: 'bar',
+        BAZ: 'baz',
       },
       branches: ['master', 'develop'],
     })
 
+    expect(api.client.updateSite).toHaveBeenCalledTimes(1)
+    expect(api.client.updateSite).toHaveBeenCalledWith({
+      body: {
+        build_settings: {
+          allowed_branches: ['master', 'develop'],
+          env: {
+            FOO: 'foo',
+            BAR: 'bar',
+            BAZ: 'baz',
+          },
+        },
+      },
+      site_id: 'uuid',
+    })
+
     expect(response).toHaveProperty('variables')
     expect(response).toHaveProperty('branches')
-    expect(response.variables).toEqual(expectedResponse.build_settings.env)
-    expect(response.branches).toEqual(
-      expectedResponse.build_settings.allowed_branches
-    )
+  })
+
+  it('Should update only variables', async function () {
+    const response = await api.updateContextSettings({
+      variables: {
+        FOO: 'bar',
+      },
+    })
+
+    expect(api.client.updateSite).toHaveBeenCalledTimes(1)
+    expect(api.client.updateSite).toHaveBeenCalledWith({
+      body: {
+        build_settings: {
+          env: {
+            FOO: 'bar',
+          },
+        },
+      },
+      site_id: 'uuid',
+    })
+
+    expect(response).toHaveProperty('variables')
+    expect(response).toHaveProperty('branches')
+  })
+
+  it('Should update only branches', async function () {
+    const response = await api.updateContextSettings({
+      branches: ['foo'],
+    })
+
+    expect(api.client.updateSite).toHaveBeenCalledTimes(1)
+    expect(api.client.updateSite).toHaveBeenCalledWith({
+      body: {
+        build_settings: {
+          allowed_branches: ['foo'],
+        },
+      },
+      site_id: 'uuid',
+    })
+
+    expect(response).toHaveProperty('variables')
+    expect(response).toHaveProperty('branches')
   })
 })

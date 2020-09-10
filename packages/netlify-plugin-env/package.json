@@ -1,6 +1,6 @@
 {
   "name": "@netlify-tools/netlify-plugin-env",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Netlify build plugin to set ENV variables based on the context",
   "main": "dist/main.js",
   "repository": {
@@ -16,7 +16,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@netlify-tools/core": "1.0.0"
+    "@netlify-tools/core": "^0.0.1"
   },
   "devDependencies": {
     "ts-loader": "^8.0.3",

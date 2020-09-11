@@ -65,7 +65,7 @@ export const groupVariablesByContext = (
 
   const result = entries.reduce<Record<string, Record<string, string>>>(
     (acc, [key, value]) => {
-      const matches = key.match(/__.+?__$/)
+      const matches = key.match(/__[^_]+__$/)
 
       if (!matches) {
         acc[KnownContext.Default][key] = value

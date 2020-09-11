@@ -2,14 +2,6 @@ import { KnownContext, RESERVED_CONTEXT_NAMES } from './constants'
 import { NetlifyContextSettings } from './netlify'
 
 /**
- * Check if the given name is valid and it does not generate any conflict with context format
- * @param {string} name variable name
- *
- * @return {boolean} result
- */
-export const isValidName = (name: string): boolean => !name.match(/__.*__/gi)
-
-/**
  * Check if the given context name is the default one
  * @param {string} context context name
  *

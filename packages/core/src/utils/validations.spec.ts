@@ -1,20 +1,5 @@
-import { isValidName, isDefaultContext, isValidContext } from './validations'
+import { isDefaultContext, isValidContext } from './validations'
 import { NetlifyContextSettings } from './netlify'
-
-describe('isValidName', () => {
-  it('should return true when the given name is valid', function () {
-    expect(isValidName('ENV_VAR')).toBeTruthy()
-    expect(isValidName('foo')).toBeTruthy()
-    expect(isValidName('foo-bar')).toBeTruthy()
-    expect(isValidName('foo-bar__')).toBeTruthy()
-    expect(isValidName('__foo-bar')).toBeTruthy()
-  })
-  it('should return false when the given name is not valid', function () {
-    expect(isValidName('__ENV_VAR__')).toBeFalsy()
-    expect(isValidName('ENV__VAR__')).toBeFalsy()
-    expect(isValidName('ENV__VAR__')).toBeFalsy()
-  })
-})
 
 describe('isDefaultContext', () => {
   it('should return true it is the default context', function () {

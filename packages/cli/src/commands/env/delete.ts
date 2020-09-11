@@ -2,7 +2,7 @@ import { flags } from '@oclif/command'
 import * as chalk from 'chalk'
 import { isEqual } from 'lodash'
 
-import { BaseCommand } from '../command'
+import { BaseCommand } from '../../command'
 import { getFormattedName } from '@netlify-tools/core/lib/utils/transform'
 
 export default class DeleteCommand extends BaseCommand {
@@ -10,7 +10,7 @@ export default class DeleteCommand extends BaseCommand {
 
   static description = 'Delete env variables from a specific context'
 
-  static examples = [`$ nfy env:delete -c production FOO BAR BAZ`]
+  static examples = [`$ netlify-tools env:delete -c production FOO BAR BAZ`]
 
   static flags = {
     ...BaseCommand.flags,

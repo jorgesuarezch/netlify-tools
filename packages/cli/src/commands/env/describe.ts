@@ -10,24 +10,14 @@ import {
 } from '@netlify-tools/core/lib//utils/transform'
 import { NetlifyContextSettings } from '@netlify-tools/core/lib/utils/netlify'
 
-import { BaseCommand } from '../command'
+import { BaseCommand } from '../../command'
 
 export default class DescribeCommand extends BaseCommand {
   static strict = false
 
   static description = 'Describe env variables for a context'
 
-  static examples = [
-    `$ nfy env:describe -c production -c develop
-  # values for production
-  FOO=foo-prod
-  BAR=bar-prod
-
-  # values for develop
-  FOO=foo-develop
-  BAR=bar-develop
-  `,
-  ]
+  static examples = [`$ netlify-tools env:describe -c production -c develop`]
 
   static flags = {
     ...BaseCommand.flags,
@@ -58,7 +48,7 @@ export default class DescribeCommand extends BaseCommand {
         ? chalk.gray.bold(branches.join(', '))
         : chalk.yellow('<none>')
 
-    this.log(chalk`\n# > describe context {white.bold ${context}}`)
+    this.log(chalk`\n# context {white.bold ${context}}`)
     this.log(`# deploy branches: ${b}`)
     this.log(`# variables:`)
     entries.forEach(([key, value]) => {

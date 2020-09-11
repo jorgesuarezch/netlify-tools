@@ -4,14 +4,14 @@ import { isEqual } from 'lodash'
 
 import { getFormattedName } from '@netlify-tools/core/lib/utils/transform'
 import { KnownContext } from '@netlify-tools/core/lib/utils/constants'
-import { BaseCommand } from '../command'
+import { BaseCommand } from '../../command'
 
 export default class SetCommand extends BaseCommand {
   static strict = false
 
   static description = 'Set env variables by context'
 
-  static examples = [`$ nfy env:set -c staging FOO=foo BAR=bar`]
+  static examples = [`$ netlify-tools env:set -c staging FOO=foo BAR=bar`]
 
   static flags = {
     ...BaseCommand.flags,

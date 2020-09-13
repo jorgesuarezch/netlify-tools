@@ -1,23 +1,19 @@
 # CLI
 
-Define your env variable with confidence
-
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/neltify-env-cli.svg)](https://npmjs.org/package/neltify-env-cli)
-[![CircleCI](https://circleci.com/gh/jorgesuarezch/neltify-env-cli/tree/master.svg?style=shield)](https://circleci.com/gh/jorgesuarezch/neltify-env-cli/tree/master)
-[![Downloads/week](https://img.shields.io/npm/dw/neltify-env-cli.svg)](https://npmjs.org/package/neltify-env-cli)
-[![License](https://img.shields.io/npm/l/neltify-env-cli.svg)](https://github.com/jorgesuarezch/neltify-env-cli/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/@netlify-tools/cli.svg)](https://npmjs.org/package/@netlify-tools/cli)
+[![Downloads/week](https://img.shields.io/npm/dw/@netlify-tools/cli.svg)](https://npmjs.org/package/@netlify-tools/cli)
+[![License](https://img.shields.io/npm/l/@netlify-tools/cli.svg)](https://github.com/jorgesuarezch/@netlify-tools/cli/blob/master/package.json)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
+* [CLI](#cli)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @netlify-tools/cli
 $ netlify-tools COMMAND
@@ -29,17 +25,15 @@ USAGE
   $ netlify-tools COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`netlify-tools env:delete`](#netlify-tools-envdelete)
-- [`netlify-tools env:describe`](#netlify-tools-envdescribe)
-- [`netlify-tools env:set`](#netlify-tools-envset)
-- [`netlify-tools help [COMMAND]`](#netlify-tools-help-command)
+* [`netlify-tools env:delete`](#netlify-tools-envdelete)
+* [`netlify-tools env:describe`](#netlify-tools-envdescribe)
+* [`netlify-tools env:set`](#netlify-tools-envset)
+* [`netlify-tools help [COMMAND]`](#netlify-tools-help-command)
 
 ## `netlify-tools env:delete`
 
@@ -78,13 +72,6 @@ OPTIONS
 
 EXAMPLE
   $ netlify-tools env:describe -c production -c develop
-     # values for production
-     FOO=foo-prod
-     BAR=bar-prod
-
-     # values for develop
-     FOO=foo-develop
-     BAR=bar-develop
 ```
 
 _See code: [src/commands/env/describe.ts](https://github.com/jorgesuarezch/neltify-tools/blob/v0.0.1/src/commands/env/describe.ts)_
@@ -125,5 +112,4 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
-
 <!-- commandsstop -->

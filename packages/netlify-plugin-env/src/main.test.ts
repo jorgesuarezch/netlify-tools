@@ -2,10 +2,10 @@ import { getVariables, onPreBuild } from './main'
 
 const defaultEnv = {
   FOOBAR: 'foobar',
-  FOOBAR__PRODUCTION__: 'foobar-production',
-  'FOOBAR__DEPLOY-PREVIEW__': 'foobar-deploy-preview',
-  'FOOBAR__BRANCH-DEPLOY__': 'foobar-branch-deploy',
-  FOOBAR__STAGING__: 'foobar-staging',
+  FOOBAR_PRODUCTION: 'foobar-production',
+  FOOBAR_DEPLOY_PREVIEW: 'foobar-deploy-preview',
+  FOOBAR_BRANCH_DEPLOY: 'foobar-branch-deploy',
+  FOOBAR_STAGING: 'foobar-staging',
 }
 
 describe('getVariables helper', () => {
@@ -37,13 +37,15 @@ describe('getVariables helper', () => {
 
   it('should return the variables that has {context}-{branch} structure', () => {
     const deployPreviewForSpecificBranchEnv = {
-      'FOOBAR__DEPLOY-PREVIEW-STAGING__': 'foobar-deploy-preview-staging-value',
+      FOOBAR_DEPLOY_PREVIEW_STAGING: 'foobar-deploy-preview-staging-value',
     }
     const newEnv = { ...defaultEnv, ...deployPreviewForSpecificBranchEnv }
+    const result = getVariables(newEnv, 'deploy-preview', 'staging')
 
-    expect(getVariables(newEnv, 'deploy-preview', 'staging')).toEqual({
-      FOOBAR: 'foobar-deploy-preview-staging-value',
-    })
+    expect(result).toHaveProperty('FOOBAR')
+    expect(result.FOOBAR).toBe(
+      deployPreviewForSpecificBranchEnv.FOOBAR_DEPLOY_PREVIEW_STAGING
+    )
   })
 })
 
@@ -61,14 +63,12 @@ describe('onPrebuild event handler', () => {
     expect(onPreBuild()).toBeUndefined()
   })
 
-  it('should set values properly in process.env for the production context', () => {
+  it('should override values properly in process.env for the production context', () => {
     process.env.CONTEXT = 'production'
     process.env.BRANCH = 'staging'
     process.env.CMS_TOKEN = 'token'
-    process.env.CMS_TOKEN__PRODUCTION__ = 'token-production'
-
+    process.env.CMS_TOKEN_PRODUCTION = 'token-production'
     onPreBuild()
-
-    expect(process.env.CMS_TOKEN).toEqual(process.env.CMS_TOKEN__PRODUCTION__)
+    expect(process.env.CMS_TOKEN).toEqual(process.env.CMS_TOKEN_PRODUCTION)
   })
 })

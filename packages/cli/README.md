@@ -44,12 +44,14 @@ USAGE
   $ netlify-tools env:delete
 
 OPTIONS
-  -c, --context=context  context to be modified
+  -c, --context=context  [default: default] context to be modified
   -h, --help             show CLI help
   --authToken=authToken  (required) Netlify OAuth Token
   --siteID=siteID        (required) Netlify Site ID
 
-EXAMPLE
+EXAMPLES
+  $ netlify-tools env:delete FOO BAR BAZ # delete variables from default context
+  $ netlify-tools env:delete -c default FOO BAR BAZ
   $ netlify-tools env:delete -c production FOO BAR BAZ
 ```
 
@@ -70,8 +72,11 @@ OPTIONS
   --authToken=authToken  (required) Netlify OAuth Token
   --siteID=siteID        (required) Netlify Site ID
 
-EXAMPLE
+EXAMPLES
+  $ netlify-tools env:describe -c default # list all variables with no suffix
+  $ netlify-tools env:describe -c staging
   $ netlify-tools env:describe -c production -c develop
+  $ netlify-tools env:describe --all
 ```
 
 _See code: [src/commands/env/describe.ts](https://github.com/jorgesuarezch/neltify-tools/blob/v0.0.1/src/commands/env/describe.ts)_
@@ -90,7 +95,9 @@ OPTIONS
   --authToken=authToken  (required) Netlify OAuth Token
   --siteID=siteID        (required) Netlify Site ID
 
-EXAMPLE
+EXAMPLES
+  $ netlify-tools env:set FOO=foo BAR=bar
+  $ netlify-tools env:set -c default FOO=foo BAR=bar
   $ netlify-tools env:set -c staging FOO=foo BAR=bar
 ```
 

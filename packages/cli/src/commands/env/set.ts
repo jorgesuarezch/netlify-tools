@@ -38,7 +38,11 @@ export default class SetCommand extends BaseCommand {
 
   static description = 'Set env variables by context'
 
-  static examples = [`$ netlify-tools env:set -c staging FOO=foo BAR=bar`]
+  static examples = [
+    `$ netlify-tools env:set FOO=foo BAR=bar`,
+    `$ netlify-tools env:set -c default FOO=foo BAR=bar`,
+    `$ netlify-tools env:set -c staging FOO=foo BAR=bar`,
+  ]
 
   static flags = {
     ...BaseCommand.flags,
@@ -97,7 +101,7 @@ export default class SetCommand extends BaseCommand {
       if (createContext) {
         branches.push(context)
       } else {
-        this.error('Context does not exist', { exit: true } as any)
+        this.error('Context does not exist', { exit: true } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       }
     }
 

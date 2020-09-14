@@ -17,7 +17,12 @@ export default class DescribeCommand extends BaseCommand {
 
   static description = 'Describe env variables for a context'
 
-  static examples = [`$ netlify-tools env:describe -c production -c develop`]
+  static examples = [
+    `$ netlify-tools env:describe -c default # list all variables with no suffix`,
+    `$ netlify-tools env:describe -c staging`,
+    `$ netlify-tools env:describe -c production -c develop`,
+    `$ netlify-tools env:describe --all`,
+  ]
 
   static flags = {
     ...BaseCommand.flags,
@@ -75,7 +80,8 @@ export default class DescribeCommand extends BaseCommand {
     const settings = await this.netlify?.getContextSettings()
 
     const variablesByContext = groupVariablesByContext(
-      settings?.variables ?? {}
+      settings?.variables ?? {},
+      settings?.branches ?? []
     )
 
     const contexts = flags.all ? settings?.branches : flags.context

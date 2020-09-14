@@ -1,9 +1,9 @@
-import { KnownContext } from './constants'
+import { KnownContext, RESERVED_CONTEXT_NAMES } from './constants'
 
 export const getFormattedContext = (context: string): string => {
-  const cleanContextName = context.replace(/[^a-zA-Z0-9_-]/, '-')
+  const cleanContextName = context.replace(/[^a-zA-Z0-9_]/g, '_')
 
-  return `__${cleanContextName.toUpperCase()}__`
+  return `_${cleanContextName.toUpperCase()}`
 }
 
 /**
@@ -59,20 +59,26 @@ export const getVariablesByContext = (
  * @returns {object} grouped env variables
  */
 export const groupVariablesByContext = (
-  env: Record<string, string>
+  env: Record<string, string>,
+  branches: string[]
 ): Record<string, Record<string, string>> => {
   const entries = Object.entries(env)
+  const formattedContexts = [
+    ...RESERVED_CONTEXT_NAMES,
+    ...branches.map(getFormattedContext),
+  ]
 
   const result = entries.reduce<Record<string, Record<string, string>>>(
     (acc, [key, value]) => {
-      const matches = key.match(/__[^_]+__$/)
+      const context = formattedContexts.find((c) =>
+        key.match(new RegExp(`${c}$`, 'gi'))
+      )
 
-      if (!matches) {
+      if (!context) {
         acc[KnownContext.Default][key] = value
         return acc
       }
 
-      const [context] = matches
       const variable = key.replace(new RegExp(`${context}$`), '')
 
       acc[context] = acc[context] ?? {}

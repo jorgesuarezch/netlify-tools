@@ -9,17 +9,18 @@ import { KnownContext } from './constants'
 
 describe('getFormattedContext', () => {
   it('Should format the context name properly', async function () {
-    expect(getFormattedContext('develop')).toBe('__DEVELOP__')
-    expect(getFormattedContext('feature/task-x')).toBe('__FEATURE-TASK-X__')
+    expect(getFormattedContext('develop')).toBe('_DEVELOP')
+    expect(getFormattedContext('feature/task-x')).toBe('_FEATURE_TASK_X')
+    expect(getFormattedContext('release--dev')).toBe('_RELEASE__DEV')
   })
 })
 
 describe('getFormattedName', () => {
   it('Should format the variable name properly', async function () {
-    expect(getFormattedName('ENV_VAR', 'develop')).toBe('ENV_VAR__DEVELOP__')
-    expect(getFormattedName('FOO', 'develop')).toBe('FOO__DEVELOP__')
-    expect(getFormattedName('bar', 'develop')).toBe('bar__DEVELOP__')
-    expect(getFormattedName('BaZ', 'develop')).toBe('BaZ__DEVELOP__')
+    expect(getFormattedName('ENV_VAR', 'develop')).toBe('ENV_VAR_DEVELOP')
+    expect(getFormattedName('FOO', 'develop')).toBe('FOO_DEVELOP')
+    expect(getFormattedName('bar', 'develop')).toBe('bar_DEVELOP')
+    expect(getFormattedName('BaZ', 'develop')).toBe('BaZ_DEVELOP')
   })
 
   it('Should ignore default context', async function () {
@@ -32,19 +33,19 @@ describe('getContextualizedVariables', () => {
   it('Should return a new var objects with the keys formatted properly', async function () {
     expect(
       getContextualizedVariables({ ENV_VAR_1: '1', ENV_VAR_2: '1' }, 'develop')
-    ).toEqual({ ENV_VAR_1__DEVELOP__: '1', ENV_VAR_2__DEVELOP__: '1' })
+    ).toEqual({ ENV_VAR_1_DEVELOP: '1', ENV_VAR_2_DEVELOP: '1' })
   })
 })
 
 describe('getVariablesByContext', () => {
   it('Should get the env variables by context', () => {
     const env = {
-      ENV_VAR_1__DEVELOP__: '1',
-      ENV_VAR_2__DEVELOP__: '2',
-      ENV_VAR_3__DEVELOP__: '3',
-      ENV_VAR_1__STAGING__: '4',
-      ENV_VAR_2__STAGING__: '5',
-      ENV_VAR_3__STAGING__: '6',
+      ENV_VAR_1_DEVELOP: '1',
+      ENV_VAR_2_DEVELOP: '2',
+      ENV_VAR_3_DEVELOP: '3',
+      ENV_VAR_1_STAGING: '4',
+      ENV_VAR_2_STAGING: '5',
+      ENV_VAR_3_STAGING: '6',
     }
 
     expect(getVariablesByContext(env, 'develop')).toEqual({
@@ -59,24 +60,26 @@ describe('groupVariablesByContext', () => {
   it('Should group variables by context', () => {
     const env = {
       ENV_VAR_GLOBAL: 'ENV_VAR_GLOBAL',
-      ENV_VAR_1__DEVELOP__: '1',
-      ENV_VAR_2__DEVELOP__: '2',
-      ENV_VAR_3__DEVELOP__: '3',
-      ENV_VAR_1__STAGING__: '4',
-      ENV_VAR_2__STAGING__: '5',
-      ENV_VAR_3__STAGING__: '6',
+      ENV_VAR_1_DEVELOP: '1',
+      ENV_VAR_2_DEVELOP: '2',
+      ENV_VAR_3_DEVELOP: '3',
+      ENV_VAR_1_STAGING: '4',
+      ENV_VAR_2_STAGING: '5',
+      ENV_VAR_3_STAGING: '6',
     }
 
-    expect(groupVariablesByContext(env)).toEqual({
+    const branches = ['develop', 'staging']
+
+    expect(groupVariablesByContext(env, branches)).toEqual({
       default: {
         ENV_VAR_GLOBAL: 'ENV_VAR_GLOBAL',
       },
-      __DEVELOP__: {
+      _DEVELOP: {
         ENV_VAR_1: '1',
         ENV_VAR_2: '2',
         ENV_VAR_3: '3',
       },
-      __STAGING__: {
+      _STAGING: {
         ENV_VAR_1: '4',
         ENV_VAR_2: '5',
         ENV_VAR_3: '6',

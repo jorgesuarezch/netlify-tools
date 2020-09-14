@@ -4,13 +4,18 @@ import { isEqual } from 'lodash'
 
 import { BaseCommand } from '../../command'
 import { getFormattedName } from '@netlify-tools/core/lib/utils/transform'
+import { KnownContext } from '@netlify-tools/core/lib/utils/constants'
 
 export default class DeleteCommand extends BaseCommand {
   static strict = false
 
   static description = 'Delete env variables from a specific context'
 
-  static examples = [`$ netlify-tools env:delete -c production FOO BAR BAZ`]
+  static examples = [
+    `$ netlify-tools env:delete FOO BAR BAZ # delete variables from default context`,
+    `$ netlify-tools env:delete -c default FOO BAR BAZ`,
+    `$ netlify-tools env:delete -c production FOO BAR BAZ`,
+  ]
 
   static flags = {
     ...BaseCommand.flags,
@@ -19,6 +24,7 @@ export default class DeleteCommand extends BaseCommand {
       char: 'c',
       required: false,
       multiple: false,
+      default: KnownContext.Default,
       description: 'context to be modified',
     }),
   }
@@ -45,7 +51,7 @@ export default class DeleteCommand extends BaseCommand {
         delete variables[name]
       } else {
         this.log(
-          chalk.yellow`› warning: variable {yellow.bold ${arg}} was not found in {yellow.bold ${flags.context}}`
+          chalk.yellow`› warning: variable {yellow.bold ${arg}} was not found in {yellow.bold ${flags.context}} context`
         )
       }
     })

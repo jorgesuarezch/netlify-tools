@@ -1,6 +1,6 @@
 {
   "name": "@netlify-tools/netlify-plugin-env",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Netlify build plugin to set ENV variables based on the context",
   "main": "dist/main.js",
   "repository": {

@@ -43,7 +43,7 @@
   "homepage": "https://github.com/jorgesuarezch/neltify-tools",
   "keywords": [
     "netlify",
-    "environment",
+    "env",
     "cli"
   ],
   "license": "MIT",

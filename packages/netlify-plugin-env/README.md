@@ -16,31 +16,31 @@ So, this plugin aims to fix that.
 
 ## How it works
 
-In order for this plugin to work properly env variables names need to have the format: **`[VARIABLE]__[DEPLOY-CONTEXT]__`**, so the plugin will check the `process.env` and will set for `[VARIABLE]` the value of `[VARIABLE]__[DEPLOY-CONTEXT]__` if the current deploy context and **`[DEPLOY-CONTEXT]`** matches.
+In order for this plugin to work properly env variables names need to have the format: **`[VARIABLE]_[DEPLOY-CONTEXT]`**, so the plugin will check the `process.env` and will set for `[VARIABLE]` the value of `[VARIABLE]_[DEPLOY-CONTEXT]` if the current deploy context and **`[DEPLOY-CONTEXT]`** matches.
 
 For instance:
 
 ```bash
 AUTH_TOKEN=supersecret
-AUTH_TOKEN__STAGING__=secret@
+AUTH_TOKEN_STAGING=secret@
 ```
 
-the plugin will override the `AUTH_SECRET` value with the one for `AUTH_TOKEN__STAGING__`.
+the plugin will override the `AUTH_TOKEN` value with the one for `AUTH_TOKEN_STAGING`.
 
 ```js
-AUTH_SECRET === AUTH_TOKEN__STAGING__ === secret@
+AUTH_SECRET === AUTH_TOKEN_STAGING === secret@
 ```
 
 The next table show a few examples
 
-| Deploy Context | Branch Deploy? | Variable                               | Notes                                                                                                                                        |
-| -------------- | -------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| production     | ---            | AUTH_TOKEN`__PRODUCTION__`             | predefined deploy context                                                                                                                    |
-| deploy-preview | ---            | AUTH_TOKEN`__DEPLOY-PREVIEW__`         | predefined deploy context                                                                                                                    |
-| branch-deploy  | ---            | AUTH_TOKEN`__BRANCH-DEPLOY__`          | predefined deploy context                                                                                                                    |
-| ---            | staging        | AUTH_TOKEN`__STAGING__`                |                                                                                                                                              |
-| ---            | feature/login  | AUTH_TOKEN`__FEATURE-LOGIN__`          |                                                                                                                                              |
-| deploy-preview | staging        | AUTH_TOKEN`__DEPLOY-PREVIEW-STAGING__` | allow combination between predefined deploy context and branch deploys. This is great for preview having different configuration per preview |
+| Deploy Context | Branch Deploy? | Variable                            | Notes                                                                                                                                        |
+| -------------- | -------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| production     | ---            | AUTH_TOKEN`_PRODUCTION`             | predefined deploy context                                                                                                                    |
+| deploy-preview | ---            | AUTH_TOKEN`_DEPLOY_PREVIEW`         | predefined deploy context                                                                                                                    |
+| branch-deploy  | ---            | AUTH_TOKEN`_BRANCH_DEPLOY`          | predefined deploy context                                                                                                                    |
+| ---            | staging        | AUTH_TOKEN`_STAGING`                |                                                                                                                                              |
+| ---            | feature/login  | AUTH_TOKEN`_FEATURE_LOGIN`          |                                                                                                                                              |
+| deploy-preview | staging        | AUTH_TOKEN`_DEPLOY_PREVIEW_STAGING` | allow combination between predefined deploy context and branch deploys. This is great for preview having different configuration per preview |
 
 # Usage
 

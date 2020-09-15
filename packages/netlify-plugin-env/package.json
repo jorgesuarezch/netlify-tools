@@ -15,6 +15,12 @@
     "build": "webpack --config webpack.config.js --mode production",
     "test": "jest --coverage"
   },
+  "keywords": [
+    "netlify",
+    "netlify-plugin",
+    "env",
+    "netlify-deploy-context"
+  ],
   "dependencies": {
     "@netlify-tools/core": "^0.1.0",
     "chalk": "^4.1.0",

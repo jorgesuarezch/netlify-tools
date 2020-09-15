@@ -5,41 +5,34 @@
 [![License](https://img.shields.io/npm/l/@netlify-tools/cli.svg)](https://github.com/jorgesuarezch/netlify-tools/blob/master/packages/cli/package.json)
 
 <!-- toc -->
-
-- [CLI](#cli)
-- [Usage](#usage)
-- [Commands](#commands)
+* [CLI](#cli)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @netlify-tools/cli
 $ netlify-tools COMMAND
 running command...
 $ netlify-tools (-v|--version|version)
-@netlify-tools/cli/0.1.1 darwin-x64 node-v12.18.0
+@netlify-tools/cli/0.1.2 darwin-x64 node-v12.18.0
 $ netlify-tools --help [COMMAND]
 USAGE
   $ netlify-tools COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [CLI](#cli)
-- [Usage](#usage)
-- [Commands](#commands)
-  - [`netlify-tools env:delete`](#netlify-tools-envdelete)
-  - [`netlify-tools env:describe`](#netlify-tools-envdescribe)
-  - [`netlify-tools env:set`](#netlify-tools-envset)
-  - [`netlify-tools help [COMMAND]`](#netlify-tools-help-command)
+* [`netlify-tools env:delete`](#netlify-tools-envdelete)
+* [`netlify-tools env:describe`](#netlify-tools-envdescribe)
+* [`netlify-tools env:set`](#netlify-tools-envset)
+* [`netlify-tools help [COMMAND]`](#netlify-tools-help-command)
 
 ## `netlify-tools env:delete`
 
@@ -61,7 +54,7 @@ EXAMPLES
   $ netlify-tools env:delete -c production FOO BAR BAZ
 ```
 
-_See code: [src/commands/env/delete.ts](https://github.com/jorgesuarezch/netlify-tools/blob/v0.1.1/src/commands/env/delete.ts)_
+_See code: [src/commands/env/delete.ts](https://github.com/jorgesuarezch/netlify-tools/blob/v0.1.2/src/commands/env/delete.ts)_
 
 ## `netlify-tools env:describe`
 
@@ -85,7 +78,7 @@ EXAMPLES
   $ netlify-tools env:describe --all
 ```
 
-_See code: [src/commands/env/describe.ts](https://github.com/jorgesuarezch/netlify-tools/blob/v0.1.1/src/commands/env/describe.ts)_
+_See code: [src/commands/env/describe.ts](https://github.com/jorgesuarezch/netlify-tools/blob/v0.1.2/src/commands/env/describe.ts)_
 
 ## `netlify-tools env:set`
 
@@ -107,7 +100,7 @@ EXAMPLES
   $ netlify-tools env:set -c staging FOO=foo BAR=bar
 ```
 
-_See code: [src/commands/env/set.ts](https://github.com/jorgesuarezch/netlify-tools/blob/v0.1.1/src/commands/env/set.ts)_
+_See code: [src/commands/env/set.ts](https://github.com/jorgesuarezch/netlify-tools/blob/v0.1.2/src/commands/env/set.ts)_
 
 ## `netlify-tools help [COMMAND]`
 
@@ -125,5 +118,4 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
-
 <!-- commandsstop -->

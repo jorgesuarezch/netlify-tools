@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/jorgesuarezch/netlify-tools/compare/@netlify-tools/netlify-plugin-env@0.1.2...@netlify-tools/netlify-plugin-env@0.1.3) (2020-09-15)
+
+
+### Bug Fixes
+
+* **docs:** broken link ([3688783](https://github.com/jorgesuarezch/netlify-tools/commit/3688783dd7448e369a988fdcfc8c6073b1d195c8))
+
+
+
+
+
 ## [0.1.2](https://github.com/jorgesuarezch/netlify-tools/compare/@netlify-tools/netlify-plugin-env@0.1.1...@netlify-tools/netlify-plugin-env@0.1.2) (2020-09-15)
 
 ### Bug Fixes

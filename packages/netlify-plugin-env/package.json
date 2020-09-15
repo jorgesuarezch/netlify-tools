@@ -1,6 +1,6 @@
 {
   "name": "@netlify-tools/netlify-plugin-env",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A Netlify build plugin to set ENV variables based on the context",
   "main": "dist/main.js",
   "repository": {
@@ -27,7 +27,7 @@
     "manifest.yml"
   ],
   "dependencies": {
-    "@netlify-tools/core": "^0.1.1",
+    "@netlify-tools/core": "^0.1.2",
     "chalk": "^4.1.0",
     "webpack-node-externals": "^2.5.2"
   },

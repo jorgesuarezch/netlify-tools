@@ -1,6 +1,6 @@
 {
   "name": "@netlify-tools/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "core package for netlify-tools utilities",
   "main": "lib/main.js",
   "types": "lib/main.d.ts",

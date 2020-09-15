@@ -2,8 +2,7 @@
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@netlify-tools/cli.svg)](https://npmjs.org/package/@netlify-tools/cli)
-[![Downloads/week](https://img.shields.io/npm/dw/@netlify-tools/cli.svg)](https://npmjs.org/package/@netlify-tools/cli)
-[![License](https://img.shields.io/npm/l/@netlify-tools/cli.svg)](https://github.com/jorgesuarezch/@netlify-tools/cli/blob/master/package.json)
+[![License](https://img.shields.io/npm/l/@netlify-tools/cli.svg)](https://github.com/jorgesuarezch/netlify-tools/blob/master/packages/cli/package.json)
 
 <!-- toc -->
 
@@ -34,10 +33,13 @@ USAGE
 
 <!-- commands -->
 
-- [`netlify-tools env:delete`](#netlify-tools-envdelete)
-- [`netlify-tools env:describe`](#netlify-tools-envdescribe)
-- [`netlify-tools env:set`](#netlify-tools-envset)
-- [`netlify-tools help [COMMAND]`](#netlify-tools-help-command)
+- [CLI](#cli)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`netlify-tools env:delete`](#netlify-tools-envdelete)
+  - [`netlify-tools env:describe`](#netlify-tools-envdescribe)
+  - [`netlify-tools env:set`](#netlify-tools-envset)
+  - [`netlify-tools help [COMMAND]`](#netlify-tools-help-command)
 
 ## `netlify-tools env:delete`
 

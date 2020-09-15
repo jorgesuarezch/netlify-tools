@@ -1,4 +1,7 @@
-# netlify plugin env
+# Netlify Plugin Env
+
+[![Version](https://img.shields.io/npm/v/@netlify-tools/netlify-plugin-env.svg)](https://npmjs.org/package/@netlify-tools/netlify-plugin-env)
+[![License](https://img.shields.io/npm/l/@netlify-tools/netlify-plugin-env.svg)](https://github.com/jorgesuarezch/netlify-tools/blob/master/packages/netlify-plugin-env/package.json)
 
 This plugin helps to have your env variables separated by deploy context in a seamless way.
 
@@ -12,7 +15,7 @@ That's great, isn't it? However there is a little limitation for configuring env
 
 So, this plugin aims to fix that.
 
-**Note** [`@netlify-tools/cli`](../cli/README.md) can help with setting env variables by context
+**Note** [`@netlify-tools/cli`](/packages/cli/README.md) can help with setting env variables by context
 
 ## How it works
 
@@ -45,6 +48,18 @@ The next table show a few examples
 # Usage
 
 ## Add the plugin
+
+Install it via npm
+
+```bash
+npm install --save-dev @netlify-tools/netlify-plugin-env
+```
+
+Install it via yarn
+
+```bash
+yarn add --dev @netlify-tools/netlify-plugin-env
+```
 
 Add a `[[plugins]]` entry to your `netlify.toml` file:
 

@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jorgesuarezch/neltify-tools.git",
+    "url": "https://github.com/jorgesuarezch/netlify-tools.git",
     "directory": "packages/netlify-plugin-contextify"
   },
   "author": "Jorge Suárez",

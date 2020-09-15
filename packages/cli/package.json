@@ -7,7 +7,7 @@
     "netlify-tools": "./bin/run",
     "nfytools": "./bin/run"
   },
-  "bugs": "https://github.com/jorgesuarezch/neltify-tools/issues",
+  "bugs": "https://github.com/jorgesuarezch/netlify-tools/issues",
   "dependencies": {
     "@netlify-tools/core": "^0.1.1",
     "@oclif/command": "^1",
@@ -40,7 +40,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/jorgesuarezch/neltify-tools",
+  "homepage": "https://github.com/jorgesuarezch/netlify-tools",
   "keywords": [
     "netlify",
     "env",
@@ -57,7 +57,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jorgesuarezch/neltify-tools.git",
+    "url": "https://github.com/jorgesuarezch/netlify-tools.git",
     "directory": "packages/cli"
   },
   "scripts": {

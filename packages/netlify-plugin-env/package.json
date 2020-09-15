@@ -23,7 +23,8 @@
     "netlify-deploy-context"
   ],
   "files": [
-    "/dist"
+    "/dist",
+    "manifest.yml"
   ],
   "dependencies": {
     "@netlify-tools/core": "^0.1.1",

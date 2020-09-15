@@ -21,6 +21,9 @@
     "env",
     "netlify-deploy-context"
   ],
+  "files": [
+    "/dist"
+  ],
   "dependencies": {
     "@netlify-tools/core": "^0.1.0",
     "chalk": "^4.1.0",

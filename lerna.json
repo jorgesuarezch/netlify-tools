@@ -5,11 +5,11 @@
   "useWorkspaces": true,
   "command": {
     "publish": {
-      "message": "chore(release): publish %s",
+      "message": "chore(release): publish [skip-ci]",
       "conventionalCommits": true
     },
     "version": {
-      "message": "chore(release): publish %s",
+      "message": "chore(release): publish [skip-ci]",
       "conventionalCommits": true
     }
   }

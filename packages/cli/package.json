@@ -1,7 +1,7 @@
 {
   "name": "@netlify-tools/cli",
   "description": "manage your environment configuration seamless",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Jorge Suárez",
   "bin": {
     "netlify-tools": "./bin/run",
@@ -9,7 +9,7 @@
   },
   "bugs": "https://github.com/jorgesuarezch/neltify-tools/issues",
   "dependencies": {
-    "@netlify-tools/core": "^0.0.1",
+    "@netlify-tools/core": "^0.1.0",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",

@@ -1,6 +1,6 @@
 {
   "name": "@netlify-tools/core",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Netlify build plugin to set ENV variables based on the context",
   "main": "lib/main.js",
   "types": "lib/main.d.ts",

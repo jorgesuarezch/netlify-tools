@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@netlify-tools/core": "^0.0.1",
+    "chalk": "^4.1.0",
     "webpack-node-externals": "^2.5.2"
   },
   "devDependencies": {

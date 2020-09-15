@@ -30,6 +30,6 @@
     "format": "eslint '*/**/*.{js,ts,tsx}' --fix --color --cache --format codeframe",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --color --cache --format codeframe",
     "build": "lerna run build",
-    "test": "lerna run test"
+    "test": "yarn workspaces run test --silent"
   }
 }
